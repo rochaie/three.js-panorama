@@ -79,7 +79,7 @@ width: 3.7%;height: 6.7%;" id="downward">
     <img src="ncepu1.png" width=100% height=100%/>
     </div>
 <div style="position: absolute
-;left: 50%;top: 50%;color: chartreuse;" id="load2">
+;left: 40%;top: 40%;color: chartreuse;" id="load2">
     加载中...
 </div>
 <script type="text/javascript" src="three.js"></script>
@@ -118,6 +118,7 @@ width: 3.7%;height: 6.7%;" id="downward">
     var raycaster=new THREE.Raycaster();
     var object=[];
     var large,s1,s2,s3,s4,s5,s6,smaller,turnleft,turnright,upward,downward;
+    var touchX,touchY;
 
     init();
     animate();
@@ -169,7 +170,6 @@ width: 3.7%;height: 6.7%;" id="downward">
             load1.style.visibility='visible';
             load2.style.visibility='hidden';
             InitText();
-            callback.call(img);
         }
 
         var material=[];
@@ -187,6 +187,8 @@ width: 3.7%;height: 6.7%;" id="downward">
 
         document.addEventListener('mousedown',onDocumentMouseDown,false);
         document.addEventListener('wheel',onDocumentMouseWheel,false);
+        document.addEventListener('touchstart',ontouchstart,false);
+        document.addEventListener('touchmove',ontouchmove,false);
 
          
          large.addEventListener('mousedown',DownEnlarge,true);
@@ -248,6 +250,25 @@ width: 3.7%;height: 6.7%;" id="downward">
         camera.updateProjectionMatrix();
     }
 
+    function ontouchstart(event) {
+        event.preventDefault();
+         touchX=event.screenX;
+         touchY=event.screenY;
+    }
+
+    function ontouchmove(event) {
+        event.preventDefault();
+        lon-=(event.screenX-touchX)*0.1;
+        lat+=(event.screenX-touchY)*0.1;
+        document.addEventListener('touchend',End,false);
+    }
+
+    function End() {
+        event.preventDefault();
+        document.removeEventListener('touchmove',ontouchmove);
+        document.removeEventListener('touchend',End);
+    }
+
     function ChangeScene(x) {
        var texture=[];
        for(var i=0;i<6;i++){
@@ -266,7 +287,6 @@ width: 3.7%;height: 6.7%;" id="downward">
                 texture[i].image=canvas;
                 texture[i].needsUpdate=true;
             }
-            callback.call(img);
         }
        var material=mesh.material;
        for(var i=0;i<6;i++){
