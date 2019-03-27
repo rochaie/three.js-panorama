@@ -190,6 +190,9 @@ width: 3.7%;height: 6.7%;" id="downward">
 
         document.addEventListener('touchstart',onDocumentTouchStart,false);
         document.addEventListener('touchmove',onDocumentTouchMove,false);
+        if(window.DeviceMotionEvent) {
+            window.addEventListener('devicemotion', onDeviceMotion, true);
+        }else{alert('浏览器不支持');}
 
          
          large.addEventListener('mousedown',DownEnlarge,true);
@@ -267,6 +270,14 @@ width: 3.7%;height: 6.7%;" id="downward">
         touchY=touch.screenY;
     }
 
+    function onDeviceMotion(event) {
+        var a=event.accelerationIncludingGravity;
+        var x=a.x;
+        var y=a.y;
+        lon=lon-Math.abs(x);
+        lat=lat+Math.abs(y);
+    }
+    
     function ChangeScene(x) {
        var texture=[];
        for(var i=0;i<6;i++){
@@ -454,7 +465,7 @@ width: 3.7%;height: 6.7%;" id="downward">
         downward.removeEventListener('mousedown',DownWard);
         downward.removeEventListener('mouseup',Up5);
     }
-
+    
     function onWindowResize() {
         camera.aspect = window.innerWidth / window.innerHeight;
         camera.updateProjectionMatrix();
