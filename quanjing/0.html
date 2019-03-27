@@ -252,21 +252,18 @@ width: 3.7%;height: 6.7%;" id="downward">
 
     function ontouchstart(event) {
         event.preventDefault();
-         touchX=event.screenX;
-         touchY=event.screenY;
+        var touch=event.touches[0];
+         touchX=touch.screenX;
+         touchY=touch.screenY;
     }
 
     function ontouchmove(event) {
         event.preventDefault();
+        var touch=event.touches[0];
         lon-=(event.screenX-touchX)*0.1;
         lat+=(event.screenX-touchY)*0.1;
-        document.addEventListener('touchend',End,false);
-    }
-
-    function End() {
-        event.preventDefault();
-        document.removeEventListener('touchmove',ontouchmove);
-        document.removeEventListener('touchend',End);
+        touchX=touch.screenX;
+        touchY=touch.screenY;
     }
 
     function ChangeScene(x) {
