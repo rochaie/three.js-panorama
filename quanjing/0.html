@@ -15,83 +15,68 @@
 <body>
 <div
 style="position: absolute;
-background-image: url(tubiao1.png);
-background-size: cover;
 left:65%;
 top:80%;
-width: 52px;
-height: 50px;visibility: hidden;
+width: 3.7%;height: 6.7%;
+visibility: hidden;
 "id="quanpin"  onclick="IntoFullScreen()">
+    <img src="tubiao1.png" width=100% height=100%/>
 </div>
 
 <div style="position: absolute;visibility: hidden;
-     background-image: url(tubiao2.png);
-background-size: cover;
 left: 60%;
 top:80%;
-width: 52px;
-height: 50px;"id="tuichu" onclick="ExitFullScreen()">
+width: 3.7%;height: 6.7%;
+"id="tuichu" onclick="ExitFullScreen()">
+    <img src="tubiao2.png" width=100% height=100%/>
 </div>
 
 <div style="position: absolute;visibility: hidden;
-background-image: url(tubiao3.png);
-background-size: cover;
 left: 55%;
 top: 80%;
-width: 52px;
-height: 50px"  id="large">
+width: 3.7%;height: 6.7%;"  id="large">
+    <img src="tubiao3.png" width=100% height=100%/>
 </div>
 
 <div style="position: absolute;visibility: hidden;
-background-image: url(tubiao4.png);
-background-size: cover;
 left: 50%;
 top: 80%;
-width: 52px;
-height: 50px;" id="smaller">
+width: 3.7%;height: 6.7%;;" id="smaller">
+    <img src="tubiao4.png" width=100% height=100%/>
 </div>
 
 <div style="position: absolute;visibility: hidden;
-background-image: url(tubiao5.png);
-background-size: cover;
 left: 45%;
 top: 80%;
-width: 52px;
-height: 50px" id="turnleft">
+width: 3.7%;height: 6.7%;" id="turnleft">
+    <img src="tubiao5.png" width=100% height=100%/>
 </div>
 
 <div style="position: absolute;visibility: hidden;
-background-image: url(tubiao6.png);
-background-size: cover;
 left: 40%;
 top: 80%;
-width: 52px;
-height: 50px" id="turnright">
+width: 3.7%;height: 6.7%;" id="turnright">
+    <img src="tubiao6.png" width=100% height=100%/>
 </div>
 
 <div style="position: absolute;visibility: hidden;
-background-image: url(tubiao7.png);
-background-size: cover;
 left: 35%;
 top: 80%;
-width: 52px;
-height: 50px" id="upward">
+width: 3.7%;height: 6.7%;" id="upward">
+    <img src="tubiao7.png" width=100% height=100%/>
 </div>
 
 <div style="position: absolute;visibility: hidden;
-background-image: url(tubiao8.png);
-background-size: cover;
 left: 30%;
 top: 80%;
-width: 52px;
-height: 50px" id="downward">
+width: 3.7%;height: 6.7%;" id="downward">
+    <img src="tubiao8.png" width=100% height=100%/>
 </div>
 <div
         style="position: absolute;
-        background-image: url(ncepu1.png);
-        background-size: cover;
-        width: 200px;
-        height: 50px;visibility: hidden" id="load1">
+        width: 15%;
+        height: 8%;visibility: hidden" id="load1">
+    <img src="ncepu1.png" width=100% height=100%/>
     </div>
 <div style="position: absolute
 ;left: 50%;top: 50%;color: chartreuse;" id="load2">
@@ -184,6 +169,7 @@ height: 50px" id="downward">
             load1.style.visibility='visible';
             load2.style.visibility='hidden';
             InitText();
+            callback.call(img);
         }
 
         var material=[];
@@ -280,6 +266,7 @@ height: 50px" id="downward">
                 texture[i].image=canvas;
                 texture[i].needsUpdate=true;
             }
+            callback.call(img);
         }
        var material=mesh.material;
        for(var i=0;i<6;i++){
