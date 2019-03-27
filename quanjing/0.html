@@ -187,6 +187,7 @@ width: 3.7%;height: 6.7%;" id="downward">
 
         document.addEventListener('mousedown',onDocumentMouseDown,false);
         document.addEventListener('wheel',onDocumentMouseWheel,false);
+
         document.addEventListener('touchstart',ontouchstart,false);
         document.addEventListener('touchmove',ontouchmove,false);
 
@@ -260,8 +261,8 @@ width: 3.7%;height: 6.7%;" id="downward">
     function ontouchmove(event) {
         event.preventDefault();
         var touch=event.touches[0];
-        lon-=(event.screenX-touchX)*0.1;
-        lat+=(event.screenX-touchY)*0.1;
+        lon-=(touch.screenX-touchX)*0.1;
+        lat+=(touch.screenX-touchY)*0.1;
         touchX=touch.screenX;
         touchY=touch.screenY;
     }
