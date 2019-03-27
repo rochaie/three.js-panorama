@@ -261,8 +261,8 @@ width: 3.7%;height: 6.7%;" id="downward">
     function onDocumentTouchMove(event) {
         event.preventDefault();
         var touch=event.touches[0];
-        lon-=(touch.screenX-touchX)*0.1;
-        lat+=(touch.screenX-touchY)*0.01;
+        lon=lon-(touch.screenX-touchX)*0.1;
+        lat=lat+(touch.screenY-touchY)*0.01;
         touchX=touch.screenX;
         touchY=touch.screenY;
     }
