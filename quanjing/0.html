@@ -188,8 +188,8 @@ width: 3.7%;height: 6.7%;" id="downward">
         document.addEventListener('mousedown',onDocumentMouseDown,false);
         document.addEventListener('wheel',onDocumentMouseWheel,false);
 
-        document.addEventListener('touchstart',ontouchstart,false);
-        document.addEventListener('touchmove',ontouchmove,false);
+        document.addEventListener('touchstart',onDocumentTouchStart,false);
+        document.addEventListener('touchmove',onDocumentTouchMove,false);
 
          
          large.addEventListener('mousedown',DownEnlarge,true);
@@ -251,14 +251,14 @@ width: 3.7%;height: 6.7%;" id="downward">
         camera.updateProjectionMatrix();
     }
 
-    function ontouchstart(event) {
+    function onDocumentTouchStart(event) {
         event.preventDefault();
         var touch=event.touches[0];
          touchX=touch.screenX;
          touchY=touch.screenY;
     }
 
-    function ontouchmove(event) {
+    function onDocumentTouchMove(event) {
         event.preventDefault();
         var touch=event.touches[0];
         lon-=(touch.screenX-touchX)*0.1;
