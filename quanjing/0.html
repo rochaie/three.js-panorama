@@ -273,9 +273,9 @@ width: 3.7%;height: 6.7%;" id="downward">
     function onDeviceMotion(event) {
         var a=event.accelerationIncludingGravity;
         var x=a.x;
-        var y=a.y;
+        var z=a.z;
         lon=lon-x;
-        lat=lat+y;
+        lat=lat+z;
     }
     
     function ChangeScene(x) {
