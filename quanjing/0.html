@@ -274,8 +274,8 @@ width: 3.7%;height: 6.7%;" id="downward">
         var a=event.accelerationIncludingGravity;
         var x=a.x;
         var z=a.z;
-        lon=lon-x;
-        lat=lat+z;
+        lon=lon+x*0.1;
+        lat=lat-z*0.1;
     }
     
     function ChangeScene(x) {
