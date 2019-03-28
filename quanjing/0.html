@@ -78,10 +78,12 @@ width: 3.7%;height: 6.7%;" id="downward">
         height: 8%;visibility: hidden" id="load1">
     <img src="ncepu1.png" width=100% height=100%/>
     </div>
-<div style="position: absolute
-;left: 40%;top: 40%;color: chartreuse;" id="load2">
-    加载中...
+<div id="load2">
+    <div class="font">加载中...</div>
+    <div class="load4"></div>
+    <div class="load5"></div>
 </div>
+<link rel="stylesheet" href="style.css" type="text/css">
 <script type="text/javascript" src="three.js"></script>
 <script type="text/javascript">
     function IntoFullScreen() {
@@ -145,7 +147,7 @@ width: 3.7%;height: 6.7%;" id="downward">
         var quanpin=document.getElementById('quanpin');
         var tuichu=document.getElementById('tuichu');
         var load1=document.getElementById('load1');
-        var load2=document.getElementById('load2');
+         var load2=document.getElementById('load2');
         var img=new Image();
         img.src='1.jpg';
         img.onload=function(){
@@ -283,6 +285,8 @@ width: 3.7%;height: 6.7%;" id="downward">
        for(var i=0;i<6;i++){
            texture[i]=new THREE.Texture();
        }
+       var load2=document.getElementById('load2');
+       load2.style.visibility='visible';
         var img=new Image();
         img.src=x+'.jpg';
         img.onload=function(){
@@ -296,6 +300,7 @@ width: 3.7%;height: 6.7%;" id="downward">
                 texture[i].image=canvas;
                 texture[i].needsUpdate=true;
             }
+            load2.style.visibility='hidden';
         }
        var material=mesh.material;
        for(var i=0;i<6;i++){
