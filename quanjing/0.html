@@ -81,6 +81,10 @@ width: 3.7%;height: 6.7%;" id="downward">
 <div id="load2" style="position: absolute;top: 50%;left: 50%;color: coral">
     加载中...
 </div>
+<div id="device" style="position: absolute;top: 10%;left: 92%;
+    width: 6%;height: 10%;visibility: hidden">
+    <img src="device.png" width=100% height=100%/>
+</div>
 <script type="text/javascript" src="three.js"></script>
 <script type="text/javascript">
     function IntoFullScreen() {
@@ -116,8 +120,9 @@ width: 3.7%;height: 6.7%;" id="downward">
     var mouse=new THREE.Vector2();
     var raycaster=new THREE.Raycaster();
     var object=[];
-    var large,s1,s2,s3,s4,s5,s6,smaller,turnleft,turnright,upward,downward;
-    var touchX,touchY;
+    var large,s1,s2,s3,s4,s5,s6,smaller,turnleft,turnright,upward,downward,device,quanpin
+    tuichu,load1,load2;
+    var touchX,touchY,j=1;
 
     init();
     AddListener();
@@ -142,13 +147,14 @@ width: 3.7%;height: 6.7%;" id="downward">
         turnright = document.getElementById('turnright');
         upward = document.getElementById('upward');
         downward = document.getElementById('downward');
-        var quanpin = document.getElementById('quanpin');
-        var tuichu = document.getElementById('tuichu');
-        var load1 = document.getElementById('load1');
-        var load2 = document.getElementById('load2');
+         quanpin = document.getElementById('quanpin');
+         tuichu = document.getElementById('tuichu');
+         load1 = document.getElementById('load1');
+         load2 = document.getElementById('load2');
+         device=document.getElementById('device');
         var img = new Image();
         img.src = '1.jpg';
-        img.onload = function () {
+        img.onload=function () {
             var canvas, context;
             for (var i = 0; i < 6; i++) {
                 canvas = document.createElement('canvas');
@@ -169,6 +175,13 @@ width: 3.7%;height: 6.7%;" id="downward">
             downward.style.visibility = 'visible';
             load1.style.visibility = 'visible';
             load2.style.visibility = 'hidden';
+            device.style.visibility='visible';
+            InitText();
+            object[0].position.set(-1.2, 0.1, -1.1);
+            object[1].position.set(0.2,0.02,-1.8);
+            for(var i=2;i<=11;i++){
+                object[i].position.set(1000,1000,1000);
+            }
         }
 
         var material = [];
@@ -183,12 +196,7 @@ width: 3.7%;height: 6.7%;" id="downward">
         renderer = new THREE.WebGLRenderer({antialias:true,alpha:true});//创建渲染器
         renderer.setSize(window.innerWidth, window.innerHeight);//渲染器尺寸
         document.body.appendChild(renderer.domElement);
-        InitText();
-        object[0].position.set(-1.2, 0.1, -1.1);
-        object[1].position.set(0.2,0.02,-1.8);
-        for(var i=2;i<=11;i++){
-            object[i].position.set(1000,1000,1000);
-        }
+
     }
 
  function AddListener(){
@@ -197,20 +205,37 @@ width: 3.7%;height: 6.7%;" id="downward">
 
         document.addEventListener('touchstart',onDocumentTouchStart,false);
         document.addEventListener('touchmove',onDocumentTouchMove,false);
-        if(window.DeviceMotionEvent) {
-            window.addEventListener('devicemotion', onDeviceMotion, true);
-        }else{alert('浏览器不支持');}
+         if(window.DeviceMotionEvent) {
+         window.addEventListener('devicemotion', onDeviceMotion, true);
+         }else{alert('浏览器不支持重力遥感');}
+        device.addEventListener('touchstart',ControlDeviceMotion,true);
 
          large.addEventListener('mousedown',DownEnlarge,true);
         large.addEventListener('touchstart',DownEnlarge,true);
          smaller.addEventListener('mousedown',DownSmaller,true);
+         smaller.addEventListener('touchstart',DownSmaller,true);
 
          turnleft.addEventListener('mousedown',TurnLeft,true);
+         turnleft.addEventListener('touchstart',TurnLeft,true);
          turnright.addEventListener('mousedown',TurnRight,true);
+         turnright.addEventListener('touchstart',TurnRight,true);
          upward.addEventListener('mousedown',UpWard,true);
+         upward.addEventListener('touchstart',UpWard,true);
         downward.addEventListener('mousedown',DownWard,true);
+        downward.addEventListener('touchstart',DownWard,true);
 
         window.addEventListener('resize', onWindowResize, false);
+    }
+
+    function ControlDeviceMotion() {
+        j++;
+        if(j%2==0) {
+            window.removeEventListener('devicemotion', onDeviceMotion);
+        }else{
+            if(window.DeviceMotionEvent) {
+                window.addEventListener('devicemotion', onDeviceMotion, true);
+            }else{alert('浏览器不支持重力遥感');}
+        }
     }
 
     function onDocumentMouseDown(event) {
@@ -308,7 +333,7 @@ width: 3.7%;height: 6.7%;" id="downward">
         touchY=touch.screenY;
     }
 
-    function onDeviceMotion(event) {
+    function onDeviceMotion(event) {//重力遥感
         var a=event.accelerationIncludingGravity;
         var x=a.x;
         var z=a.z;
@@ -317,133 +342,131 @@ width: 3.7%;height: 6.7%;" id="downward">
     }
     
     function ChangeScene(x) {
-       var texture=[];
-       for(var i=0;i<6;i++){
-           texture[i]=new THREE.Texture();
-       }
-        large=document.getElementById('large');
-        smaller=document.getElementById('smaller');
-        turnleft=document.getElementById('turnleft');
-        turnright=document.getElementById('turnright');
-        upward=document.getElementById('upward');
-        downward=document.getElementById('downward');
-        var quanpin=document.getElementById('quanpin');
-        var tuichu=document.getElementById('tuichu');
-        var load1=document.getElementById('load1');
-       var load2=document.getElementById('load2');
-        quanpin.style.visibility='hidden';
-        tuichu.style.visibility='hidden';
-        large.style.visibility='hidden';
-        smaller.style.visibility='hidden';
-        turnleft.style.visibility='hidden';
-        turnright.style.visibility='hidden';
-        upward.style.visibility='hidden';
-        downward.style.visibility='hidden';
-        load1.style.visibility='hidden';
-       load2.style.visibility='visible';
-        var img=new Image();
-        img.src=x+'.jpg';
-        img.onload=function(){
-            var canvas,context;
-            for(var i=0;i<6;i++){
-                canvas=document.createElement('canvas');
-                context=canvas.getContext('2d');
-                canvas.width=img.height;
-                canvas.height=img.height;
-                context.drawImage(img,img.height*i,0,img.height,img.height,0,0,img.height,img.height);
-                texture[i].image=canvas;
-                texture[i].needsUpdate=true;
-            }
-            quanpin.style.visibility='visible';
-            tuichu.style.visibility='visible';
-            large.style.visibility='visible';
-            smaller.style.visibility='visible';
-            turnleft.style.visibility='visible';
-            turnright.style.visibility='visible';
-            upward.style.visibility='visible';
-            downward.style.visibility='visible';
-            load1.style.visibility='visible';
-            load2.style.visibility='hidden';
+        var texture = [];
+        for (var i = 0; i < 6; i++) {
+            texture[i] = new THREE.Texture();
         }
-       var material=mesh.material;
-       for(var i=0;i<6;i++){
-           material[i]=new THREE.MeshBasicMaterial({map:texture[i]});
-       }
-       material.map.needsUpdate=true;
-       switch (x) {
-           case 1:
-               object[0].position.set(-1.2, 0.1, -1.1);
-               object[1].position.set(0.2,0.02,-1.8);
-               for(var i=2;i<=11;i++){
-                   object[i].position.set(1000,1000,1000);
-               }
-               break;
-           case 2:
-               for(var i=0;i<=11;i++) {
-                   if(i==2) {
-                       object[i].position.set(-0.7, 0, 1.0);
-                   }else if(i==3){
-                       object[i].position.set(1.86, 0, 0.7);
-                   }else{
-                       object[i].position.set(1000,1000,1000);
-                   }
-               }
-               break;
-           case 3:
-               for(var i=0;i<=11;i++){
-                   if(i==4){
-                       object[i].position.set(-0.27,0,1.5);
-                   }else if(i==5){
-                       object[i].position.set(-0.7,0,-1.06);
-                   }
-                   else{
-                       object[i].position.set(1000,1000,1000);
-                   }
-               }
-               break;
-           case 4:
-               for(var i=0;i<=11;i++){
-                   if(i==6){
-                       object[i].position.set(0.5,0,1.1);
-                   }else if(i==8){
-                       object[i].position.set(0.1,0,-1.7);
-                   }
-                   else {
-                       object[i].position.set(1000, 1000, 1000);
-                   }
-               }
-               break;
-           case 5:
-               for(var i=0;i<=11;i++){
-                   if(i==7){
-                       object[i].position.set(0,0,1);
-                   }else {
-                       object[i].position.set(1000, 1000, 1000);
-                   }
-               }
-               break;
-           case 6:
-               for(var i=0;i<=11;i++){
-                   if(i==9){
-                       object[i].position.set(0.5,0,1.1);
-                   }else if(i==10){
-                       object[i].position.set(-0.2,0,-1.5);
-                   }
-                   else {
-                       object[i].position.set(1000, 1000, 1000);
-                   }
-               }
-               break;
-           case 7:
-               for(var i=0;i<=11;i++){
-                   if(i==11){
-                       object[i].position.set(-1.1,-0.05,1);
-                   }else {
-                       object[i].position.set(1000, 1000, 1000);
-                   }
-               }
-               break;
-       }
+        large = document.getElementById('large');
+        smaller = document.getElementById('smaller');
+        turnleft = document.getElementById('turnleft');
+        turnright = document.getElementById('turnright');
+        upward = document.getElementById('upward');
+        downward = document.getElementById('downward');
+        quanpin.style.visibility = 'hidden';
+        tuichu.style.visibility = 'hidden';
+        large.style.visibility = 'hidden';
+        smaller.style.visibility = 'hidden';
+        turnleft.style.visibility = 'hidden';
+        turnright.style.visibility = 'hidden';
+        upward.style.visibility = 'hidden';
+        downward.style.visibility = 'hidden';
+        load1.style.visibility = 'hidden';
+        load2.style.visibility = 'visible';
+        device.style.visibility = 'hidden';
+        var img = new Image();
+        img.src = x + '.jpg';
+        img.onload = function () {
+            var canvas, context;
+            for (var i = 0; i < 6; i++) {
+                canvas = document.createElement('canvas');
+                context = canvas.getContext('2d');
+                canvas.width = img.height;
+                canvas.height = img.height;
+                context.drawImage(img, img.height * i, 0, img.height, img.height, 0, 0, img.height, img.height);
+                texture[i].image = canvas;
+                texture[i].needsUpdate = true;
+            }
+            quanpin.style.visibility = 'visible';
+            tuichu.style.visibility = 'visible';
+            large.style.visibility = 'visible';
+            smaller.style.visibility = 'visible';
+            turnleft.style.visibility = 'visible';
+            turnright.style.visibility = 'visible';
+            upward.style.visibility = 'visible';
+            downward.style.visibility = 'visible';
+            load1.style.visibility = 'visible';
+            device.style.visibility = 'visible';
+            load2.style.visibility = 'hidden';
+        }
+        var material = mesh.material;
+        for (var i = 0; i < 6; i++) {
+            material[i] = new THREE.MeshBasicMaterial({map: texture[i]});
+        }
+        material.map.needsUpdate = true;
+        switch (x) {
+            case 1:
+                object[0].position.set(-1.2, 0.1, -1.1);
+                object[1].position.set(0.2, 0.02, -1.8);
+                for (var i = 2; i <= 11; i++) {
+                    object[i].position.set(1000, 1000, 1000);
+                }
+                break;
+            case 2:
+                for (var i = 0; i <= 11; i++) {
+                    if (i == 2) {
+                        object[i].position.set(-0.7, 0, 1.0);
+                    } else if (i == 3) {
+                        object[i].position.set(1.86, 0, 0.7);
+                    } else {
+                        object[i].position.set(1000, 1000, 1000);
+                    }
+                }
+                break;
+            case 3:
+                for (var i = 0; i <= 11; i++) {
+                    if (i == 4) {
+                        object[i].position.set(-0.27, 0, 1.5);
+                    } else if (i == 5) {
+                        object[i].position.set(-0.7, 0, -1.06);
+                    }
+                    else {
+                        object[i].position.set(1000, 1000, 1000);
+                    }
+                }
+                break;
+            case 4:
+                for (var i = 0; i <= 11; i++) {
+                    if (i == 6) {
+                        object[i].position.set(0.5, 0, 1.1);
+                    } else if (i == 8) {
+                        object[i].position.set(0.1, 0, -1.7);
+                    }
+                    else {
+                        object[i].position.set(1000, 1000, 1000);
+                    }
+                }
+                break;
+            case 5:
+                for (var i = 0; i <= 11; i++) {
+                    if (i == 7) {
+                        object[i].position.set(0, 0, 1);
+                    } else {
+                        object[i].position.set(1000, 1000, 1000);
+                    }
+                }
+                break;
+            case 6:
+                for (var i = 0; i <= 11; i++) {
+                    if (i == 9) {
+                        object[i].position.set(0.5, 0, 1.1);
+                    } else if (i == 10) {
+                        object[i].position.set(-0.2, 0, -1.5);
+                    }
+                    else {
+                        object[i].position.set(1000, 1000, 1000);
+                    }
+                }
+                break;
+            case 7:
+                for (var i = 0; i <= 11; i++) {
+                    if (i == 11) {
+                        object[i].position.set(-1.1, -0.05, 1);
+                    } else {
+                        object[i].position.set(1000, 1000, 1000);
+                    }
+                }
+                break;
+        }
     }
 
     function InitText() {
@@ -637,6 +660,7 @@ width: 3.7%;height: 6.7%;" id="downward">
             camera.updateProjectionMatrix();
         },0);
         smaller.addEventListener('mouseup',Up1,true);
+        smaller.addEventListener('touchend',Up1,true);
     }
 
     function Up1() {
@@ -644,6 +668,8 @@ width: 3.7%;height: 6.7%;" id="downward">
         event.preventDefault();
         smaller.removeEventListener('mousedown',DownSmaller);
         smaller.removeEventListener('mouseup',Up1);
+        smaller.removeEventListener('touchstart',DownSmaller);
+        smaller.removeEventListener('touchend',Up1);
     }
 
     function TurnLeft() {
@@ -651,6 +677,7 @@ width: 3.7%;height: 6.7%;" id="downward">
             lon=lon-3;
         },0);
         turnleft.addEventListener('mouseup',Up2,true);
+        turnleft.addEventListener('touchend',Up2,true);
     }
 
     function Up2() {
@@ -658,6 +685,8 @@ width: 3.7%;height: 6.7%;" id="downward">
         event.preventDefault();
         turnleft.removeEventListener('mousedown',TurnLeft);
         turnleft.removeEventListener('mouseup',Up2);
+        turnleft.removeEventListener('touchstart',TurnLeft);
+        turnleft.removeEventListener('touchend',Up2);
     }
 
     function TurnRight() {
@@ -665,6 +694,7 @@ width: 3.7%;height: 6.7%;" id="downward">
             lon=lon+3;
         },0);
         turnright.addEventListener('mouseup',Up3,true);
+        turnright.addEventListener('touchend',Up3,true);
     }
 
     function Up3() {
@@ -672,6 +702,8 @@ width: 3.7%;height: 6.7%;" id="downward">
         event.preventDefault();
         turnright.removeEventListener('mousedown',TurnRight);
         turnright.removeEventListener('mouseup',Up3);
+        turnright.removeEventListener('touchstart',TurnRight);
+        turnright.removeEventListener('touchend',Up3);
     }
 
     function UpWard() {
@@ -679,6 +711,7 @@ width: 3.7%;height: 6.7%;" id="downward">
             lat=lat+3;
         },0);
         upward.addEventListener('mouseup',Up4,true);
+        upward.addEventListener('touchend',Up4,true);
     }
 
     function Up4() {
@@ -686,6 +719,8 @@ width: 3.7%;height: 6.7%;" id="downward">
         event.preventDefault();
         upward.removeEventListener('mousedown',UpWard);
         upward.removeEventListener('mouseup',Up4);
+        upward.removeEventListener('touchstart',UpWard);
+        upward.removeEventListener('touchend',Up4);
     }
 
     function DownWard() {
@@ -693,6 +728,7 @@ width: 3.7%;height: 6.7%;" id="downward">
             lat=lat-3;
         },0);
         downward.addEventListener('mouseup',Up5,true);
+        downward.addEventListener('touchend',Up5,true);
     }
 
     function Up5() {
@@ -700,6 +736,8 @@ width: 3.7%;height: 6.7%;" id="downward">
         event.preventDefault();
         downward.removeEventListener('mousedown',DownWard);
         downward.removeEventListener('mouseup',Up5);
+        downward.removeEventListener('touchstart',DownWard);
+        downward.removeEventListener('touchend',Up5);
     }
     
     function onWindowResize() {
