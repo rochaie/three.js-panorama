@@ -205,24 +205,15 @@ width: 3.7%;height: 6.7%;" id="downward">
 
         document.addEventListener('touchstart',onDocumentTouchStart,false);
         document.addEventListener('touchmove',onDocumentTouchMove,false);
-         if(window.DeviceMotionEvent) {
-         window.addEventListener('devicemotion', onDeviceMotion, true);
-         }else{alert('浏览器不支持重力遥感');}
+
         device.addEventListener('touchstart',ControlDeviceMotion,true);
 
          large.addEventListener('mousedown',DownEnlarge,true);
-        large.addEventListener('touchstart',DownEnlarge,true);
          smaller.addEventListener('mousedown',DownSmaller,true);
-         smaller.addEventListener('touchstart',DownSmaller,true);
-
          turnleft.addEventListener('mousedown',TurnLeft,true);
-         turnleft.addEventListener('touchstart',TurnLeft,true);
          turnright.addEventListener('mousedown',TurnRight,true);
-         turnright.addEventListener('touchstart',TurnRight,true);
          upward.addEventListener('mousedown',UpWard,true);
-         upward.addEventListener('touchstart',UpWard,true);
         downward.addEventListener('mousedown',DownWard,true);
-        downward.addEventListener('touchstart',DownWard,true);
 
         window.addEventListener('resize', onWindowResize, false);
     }
@@ -230,11 +221,11 @@ width: 3.7%;height: 6.7%;" id="downward">
     function ControlDeviceMotion() {
         j++;
         if(j%2==0) {
-            window.removeEventListener('devicemotion', onDeviceMotion);
-        }else{
             if(window.DeviceMotionEvent) {
                 window.addEventListener('devicemotion', onDeviceMotion, true);
             }else{alert('浏览器不支持重力遥感');}
+        }else{
+            window.removeEventListener('devicemotion', onDeviceMotion);
         }
     }
 
@@ -636,7 +627,6 @@ width: 3.7%;height: 6.7%;" id="downward">
              camera.updateProjectionMatrix();
          },0);
          large.addEventListener('mouseup',Up,true);
-         large.addEventListener('touchend',Up,true);
     }
 
     function Up() {
@@ -644,23 +634,20 @@ width: 3.7%;height: 6.7%;" id="downward">
         event.preventDefault();
         large.removeEventListener('mousedown',DownEnlarge);
         large.removeEventListener('mouseup',Up);
-        large.removeEventListener('touchstart',DownEnlarge);
-        large.removeEventListener('touchend',Up);
     }
 
     function DownSmaller() {
-        var time1=1;
-        s2= window.setInterval(function () {
-            var speed=0.01;
-            var fov=camera.fov+speed*(time1++);
-            camera.fov=fov;
-            if(camera.fov>100){
-                camera.fov=100;
+        var time1 = 1;
+        s2 = window.setInterval(function () {
+            var speed = 0.01;
+            var fov = camera.fov + speed * (time1++);
+            camera.fov = fov;
+            if (camera.fov > 100) {
+                camera.fov = 100;
             }
             camera.updateProjectionMatrix();
-        },0);
-        smaller.addEventListener('mouseup',Up1,true);
-        smaller.addEventListener('touchend',Up1,true);
+        }, 0);
+        smaller.addEventListener('mouseup', Up1, true);
     }
 
     function Up1() {
@@ -668,8 +655,6 @@ width: 3.7%;height: 6.7%;" id="downward">
         event.preventDefault();
         smaller.removeEventListener('mousedown',DownSmaller);
         smaller.removeEventListener('mouseup',Up1);
-        smaller.removeEventListener('touchstart',DownSmaller);
-        smaller.removeEventListener('touchend',Up1);
     }
 
     function TurnLeft() {
@@ -677,7 +662,6 @@ width: 3.7%;height: 6.7%;" id="downward">
             lon=lon-3;
         },0);
         turnleft.addEventListener('mouseup',Up2,true);
-        turnleft.addEventListener('touchend',Up2,true);
     }
 
     function Up2() {
@@ -685,8 +669,6 @@ width: 3.7%;height: 6.7%;" id="downward">
         event.preventDefault();
         turnleft.removeEventListener('mousedown',TurnLeft);
         turnleft.removeEventListener('mouseup',Up2);
-        turnleft.removeEventListener('touchstart',TurnLeft);
-        turnleft.removeEventListener('touchend',Up2);
     }
 
     function TurnRight() {
@@ -694,7 +676,6 @@ width: 3.7%;height: 6.7%;" id="downward">
             lon=lon+3;
         },0);
         turnright.addEventListener('mouseup',Up3,true);
-        turnright.addEventListener('touchend',Up3,true);
     }
 
     function Up3() {
@@ -702,8 +683,6 @@ width: 3.7%;height: 6.7%;" id="downward">
         event.preventDefault();
         turnright.removeEventListener('mousedown',TurnRight);
         turnright.removeEventListener('mouseup',Up3);
-        turnright.removeEventListener('touchstart',TurnRight);
-        turnright.removeEventListener('touchend',Up3);
     }
 
     function UpWard() {
@@ -711,16 +690,13 @@ width: 3.7%;height: 6.7%;" id="downward">
             lat=lat+3;
         },0);
         upward.addEventListener('mouseup',Up4,true);
-        upward.addEventListener('touchend',Up4,true);
     }
 
     function Up4() {
         clearInterval(s5);
         event.preventDefault();
         upward.removeEventListener('mousedown',UpWard);
-        upward.removeEventListener('mouseup',Up4);
-        upward.removeEventListener('touchstart',UpWard);
-        upward.removeEventListener('touchend',Up4);
+        upward.removeEventListener('mouseup',Up4);;
     }
 
     function DownWard() {
@@ -728,7 +704,6 @@ width: 3.7%;height: 6.7%;" id="downward">
             lat=lat-3;
         },0);
         downward.addEventListener('mouseup',Up5,true);
-        downward.addEventListener('touchend',Up5,true);
     }
 
     function Up5() {
@@ -736,8 +711,6 @@ width: 3.7%;height: 6.7%;" id="downward">
         event.preventDefault();
         downward.removeEventListener('mousedown',DownWard);
         downward.removeEventListener('mouseup',Up5);
-        downward.removeEventListener('touchstart',DownWard);
-        downward.removeEventListener('touchend',Up5);
     }
     
     function onWindowResize() {
