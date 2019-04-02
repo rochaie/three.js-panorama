@@ -232,9 +232,9 @@ width: 3.7%;height: 6.7%;" id="downward">
         document.addEventListener('touchmove',onDocumentTouchMove,false);
 
          if(window.DeviceMotionEvent) {
-         window.addEventListener('devicemotion', onDeviceMotion, true);
+         window.addEventListener('devicemotion', onDeviceMotion, false);
          }else{alert('浏览器不支持重力遥感');}
-        device.addEventListener('touchstart',ControlDeviceMotion,true);
+        device.addEventListener('touchstart',ControlDeviceMotion,false);
 
          large.addEventListener('mousedown',DownEnlarge,true);
          smaller.addEventListener('mousedown',DownSmaller,true);
@@ -255,7 +255,7 @@ width: 3.7%;height: 6.7%;" id="downward">
             }
         }else{
             if(window.DeviceMotionEvent) {
-                window.addEventListener('devicemotion', onDeviceMotion, true);
+                window.addEventListener('devicemotion', onDeviceMotion, false);
             }else{alert('浏览器不支持重力遥感');}
         }
     }
