@@ -123,6 +123,16 @@ width: 3.7%;height: 6.7%;" id="downward">
     var large,s1,s2,s3,s4,s5,s6,smaller,turnleft,turnright,upward,downward,device,quanpin
     tuichu,load1,load2;
     var touchX,touchY,j=1;
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+
 
     init();
     AddListener();
@@ -165,17 +175,30 @@ width: 3.7%;height: 6.7%;" id="downward">
                 textures[i].image = canvas;
                 textures[i].needsUpdate = true;
             }
+            if (!(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) ) {
+                large.style.visibility = 'visible';
+                smaller.style.visibility = 'visible';
+                turnleft.style.visibility = 'visible';
+                turnright.style.visibility = 'visible';
+                upward.style.visibility = 'visible';
+                downward.style.visibility = 'visible';
+                load1.style.visibility = 'visible';
+                device.style.visibility='visible';
+            }else{
+                large.style.visibility = 'hidden';
+                smaller.style.visibility = 'hidden';
+                turnleft.style.visibility = 'hidden';
+                turnright.style.visibility = 'hidden';
+                upward.style.visibility = 'hidden';
+                downward.style.visibility = 'hidden';
+                load1.style.visibility = 'hidden';
+                device.style.visibility='hidden';
+                quanpin.style.left='45%';
+                tuichu.style.left='50%';
+            }
             quanpin.style.visibility = 'visible';
             tuichu.style.visibility = 'visible';
-            large.style.visibility = 'visible';
-            smaller.style.visibility = 'visible';
-            turnleft.style.visibility = 'visible';
-            turnright.style.visibility = 'visible';
-            upward.style.visibility = 'visible';
-            downward.style.visibility = 'visible';
-            load1.style.visibility = 'visible';
             load2.style.visibility = 'hidden';
-            device.style.visibility='visible';
             InitText();
             object[0].position.set(-1.2, 0.1, -1.1);
             object[1].position.set(0.2,0.02,-1.8);
@@ -196,7 +219,6 @@ width: 3.7%;height: 6.7%;" id="downward">
         renderer = new THREE.WebGLRenderer({antialias:true,alpha:true});//创建渲染器
         renderer.setSize(window.innerWidth, window.innerHeight);//渲染器尺寸
         document.body.appendChild(renderer.domElement);
-
     }
 
  function AddListener(){
@@ -206,6 +228,9 @@ width: 3.7%;height: 6.7%;" id="downward">
         document.addEventListener('touchstart',onDocumentTouchStart,false);
         document.addEventListener('touchmove',onDocumentTouchMove,false);
 
+         if(window.DeviceMotionEvent) {
+         window.addEventListener('devicemotion', onDeviceMotion, true);
+         }else{alert('浏览器不支持重力遥感');}
         device.addEventListener('touchstart',ControlDeviceMotion,true);
 
          large.addEventListener('mousedown',DownEnlarge,true);
@@ -219,13 +244,14 @@ width: 3.7%;height: 6.7%;" id="downward">
     }
 
     function ControlDeviceMotion() {
+        event.preventDefault();
         j++;
         if(j%2==0) {
+            window.removeEventListener('devicemotion', onDeviceMotion);
+        }else{
             if(window.DeviceMotionEvent) {
                 window.addEventListener('devicemotion', onDeviceMotion, true);
             }else{alert('浏览器不支持重力遥感');}
-        }else{
-            window.removeEventListener('devicemotion', onDeviceMotion);
         }
     }
 
@@ -367,16 +393,29 @@ width: 3.7%;height: 6.7%;" id="downward">
                 texture[i].image = canvas;
                 texture[i].needsUpdate = true;
             }
+            if (!(bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) ) {
+                large.style.visibility = 'visible';
+                smaller.style.visibility = 'visible';
+                turnleft.style.visibility = 'visible';
+                turnright.style.visibility = 'visible';
+                upward.style.visibility = 'visible';
+                downward.style.visibility = 'visible';
+                load1.style.visibility = 'visible';
+                device.style.visibility='visible';
+            }else{
+                large.style.visibility = 'hidden';
+                smaller.style.visibility = 'hidden';
+                turnleft.style.visibility = 'hidden';
+                turnright.style.visibility = 'hidden';
+                upward.style.visibility = 'hidden';
+                downward.style.visibility = 'hidden';
+                load1.style.visibility = 'hidden';
+                device.style.visibility='hidden';
+                quanpin.style.left='45%';
+                tuichu.style.left='50%';
+            }
             quanpin.style.visibility = 'visible';
             tuichu.style.visibility = 'visible';
-            large.style.visibility = 'visible';
-            smaller.style.visibility = 'visible';
-            turnleft.style.visibility = 'visible';
-            turnright.style.visibility = 'visible';
-            upward.style.visibility = 'visible';
-            downward.style.visibility = 'visible';
-            load1.style.visibility = 'visible';
-            device.style.visibility = 'visible';
             load2.style.visibility = 'hidden';
         }
         var material = mesh.material;
