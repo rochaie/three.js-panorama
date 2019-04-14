@@ -132,6 +132,7 @@ width: 3.7%;height: 6.7%;" id="downward">
     var bIsAndroid = sUserAgent.match(/android/i) == "android";
     var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
     var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+    var useAgent=navigator.userAgent;
 
 
     init();
@@ -326,8 +327,14 @@ width: 3.7%;height: 6.7%;" id="downward">
         document.removeEventListener('mouseup',onDocumentMouseUp);
     }
 
-    function onDocumentMouseWheel(event) {
-        var speed=0.8;
+    function onDocumentMouseWheel(event){
+        var speed;
+        if(useAgent.indexOf("Firefox")>-1){
+            speed=0.8;
+        }
+        else{
+            speed=0.04;
+        }
         var fov=camera.fov+event.deltaY*speed;
           camera.fov=fov;
           if(camera.fov<5){
@@ -663,6 +670,7 @@ width: 3.7%;height: 6.7%;" id="downward">
     }
 
     function DownEnlarge() {
+        event.preventDefault();
         var time1=1;
         s1= window.setInterval(function () {
              var speed=0.01;
@@ -677,6 +685,7 @@ width: 3.7%;height: 6.7%;" id="downward">
     }
 
     function Up() {
+        event.preventDefault();
         clearInterval(s1);
         event.preventDefault();
         large.removeEventListener('mousedown',DownEnlarge);
@@ -684,6 +693,7 @@ width: 3.7%;height: 6.7%;" id="downward">
     }
 
     function DownSmaller() {
+        event.preventDefault();
         var time1 = 1;
         s2 = window.setInterval(function () {
             var speed = 0.01;
@@ -698,6 +708,7 @@ width: 3.7%;height: 6.7%;" id="downward">
     }
 
     function Up1() {
+        event.preventDefault();
         clearInterval(s2);
         event.preventDefault();
         smaller.removeEventListener('mousedown',DownSmaller);
@@ -705,6 +716,7 @@ width: 3.7%;height: 6.7%;" id="downward">
     }
 
     function TurnLeft() {
+        event.preventDefault();
         s3=window.setInterval(function () {
             lon=lon-3;
         },0);
@@ -712,6 +724,7 @@ width: 3.7%;height: 6.7%;" id="downward">
     }
 
     function Up2() {
+        event.preventDefault();
         clearInterval(s3);
         event.preventDefault();
         turnleft.removeEventListener('mousedown',TurnLeft);
@@ -719,6 +732,7 @@ width: 3.7%;height: 6.7%;" id="downward">
     }
 
     function TurnRight() {
+        event.preventDefault();
         s4=window.setInterval(function () {
             lon=lon+3;
         },0);
@@ -726,6 +740,7 @@ width: 3.7%;height: 6.7%;" id="downward">
     }
 
     function Up3() {
+        event.preventDefault();
         clearInterval(s4);
         event.preventDefault();
         turnright.removeEventListener('mousedown',TurnRight);
@@ -733,6 +748,7 @@ width: 3.7%;height: 6.7%;" id="downward">
     }
 
     function UpWard() {
+        event.preventDefault();
         s5=window.setInterval(function () {
             lat=lat+3;
         },0);
@@ -740,6 +756,7 @@ width: 3.7%;height: 6.7%;" id="downward">
     }
 
     function Up4() {
+        event.preventDefault();
         clearInterval(s5);
         event.preventDefault();
         upward.removeEventListener('mousedown',UpWard);
@@ -747,6 +764,7 @@ width: 3.7%;height: 6.7%;" id="downward">
     }
 
     function DownWard() {
+        event.preventDefault();
         s6=window.setInterval(function () {
             lat=lat-3;
         },0);
@@ -754,6 +772,7 @@ width: 3.7%;height: 6.7%;" id="downward">
     }
 
     function Up5() {
+        event.preventDefault();
         clearInterval(s6);
         event.preventDefault();
         downward.removeEventListener('mousedown',DownWard);
