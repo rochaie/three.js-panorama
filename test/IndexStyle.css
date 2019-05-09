@@ -1,6 +1,4 @@
-@media screen and (max-width: 600px){
-
-    .container {
+.container {
         min-height: 100%;
         min-width: 100%;
     }
@@ -350,6 +348,42 @@
         background-color: azure;
         box-shadow: gainsboro 0.3em 0.3em;
     }
+    @media screen and (min-width: 320px)and(max-width: 480px){
+      .Content{
+          position: absolute;
+          width: 90%;
+          height: 50%;
+          top: 21%;
+          left: 25%;
+          overflow: hidden;
+          border-right-style: solid;
+          border-right-color: gainsboro;
+          border-right-width: thin;
+          border-bottom-style: solid;
+          border-bottom-color: gainsboro;
+          border-bottom-width: thin;
+          border-top-style: solid;
+          border-top-color: gainsboro;
+          border-top-width: thin;
+          border-left-style: solid;
+          border-left-color: gainsboro;
+          border-left-width: thin;
+          z-index: 1;
+          word-wrap: break-word;
+          font-family: 华文行楷;
+          background-color: azure;
+          box-shadow: gainsboro 0.3em 0.3em;
+      }
+        .p1{
+            position: absolute;
+            top: 40%;
+            text-indent: 2em;
+            font-size: 2em;
+            overflow: hidden;
+            max-height: 42%;
+            height: auto !important;
+        }
+    }
 
     .H1 {
         text-align: center;
@@ -406,4 +440,3 @@
         font-family: 华文行楷;
         font-size: 1.2em;
     }
-}
