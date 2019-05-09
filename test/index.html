@@ -64,9 +64,12 @@
     </div>
 
 </div>
-<link type="text/css" href="IndexStyle.css" rel="stylesheet">
-<link type="text/css" media="handheld" rel="stylesheet" href="MobileIndexStyle.css">
+<link  id="style" type="text/css" href="IndexStyle.css" rel="stylesheet">
 <script type="text/javascript">
+    var style=document.getElementById('style');
+    if(/(iPhone|iPad|iOS|iPod|Android)/i.test(navigator.userAgent)){
+        style.href="MobileIndexStyle.css";
+    }
 </script>
 </body>
 </html>
