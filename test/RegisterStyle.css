@@ -1,0 +1,55 @@
+.mainContainer{
+    position: absolute;
+    top: 25%;
+    left: 40%;
+    width: 20%;
+    height: 50%;
+    background-color: honeydew;
+    border-style: solid;
+    border-width: thin;
+    border-color: gainsboro;
+    box-shadow: gainsboro 2px 2px 2px 2px;
+}
+.form{
+    position: absolute;
+    top: 20%;
+    left: 15%;
+}
+.p1{
+    font-family: 华文行楷;
+    font-size: x-large;
+}
+.input1{
+    border-color: cornflowerblue;
+    height: 1.7em;
+    width: 12em;
+}
+.p2{
+    font-family: 华文行楷;
+    font-size: x-large;
+}
+.input2{
+    border-color: cornflowerblue;
+    height: 1.7em;
+    width: 12em;
+}
+.p3{
+    font-family: 华文行楷;
+    font-size: x-large;
+}
+.input3{
+    border-color: cornflowerblue;
+    height: 1.7em;
+    width: 12em;
+}
+.button{
+    position: absolute;
+    left: 30%;
+    width: 40%;
+    height: 20%;
+    background-color: coral;
+    font-family: 华文行楷;
+    text-decoration: none;
+    text-align: center;
+    font-size: x-large;
+}

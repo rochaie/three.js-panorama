@@ -1,4 +1,5 @@
-.container {
+@media screen {
+    .container {
         min-height: 100%;
         min-width: 100%;
     }
@@ -325,10 +326,10 @@
     }
     .Content {
         position: absolute;
-        width: 50%;
+        width: 90%;
         height: 50%;
         top: 21%;
-        left: 25%;
+        left: 5%;
         overflow: hidden;
         border-right-style: solid;
         border-right-color: gainsboro;
@@ -364,7 +365,7 @@
         position: absolute;
         top: 40%;
         text-indent: 2em;
-        font-size: x-large;
+        font-size: 1em;
         overflow: hidden;
         max-height: 42%;
         height: auto !important;
@@ -404,3 +405,4 @@
         font-family: 华文行楷;
         font-size: 1.2em;
     }
+}
