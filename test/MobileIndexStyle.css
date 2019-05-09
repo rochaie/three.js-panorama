@@ -9,7 +9,7 @@
         top: 0px;
         left: 0px;
         width: 100%;
-        height: 8%;
+        height: 15%;
         background-color: aliceblue;
         margin: 0;
         padding: 0;
@@ -46,7 +46,7 @@
     .welcome_font {
         color: darkturquoise;
         font-family: 楷体;
-        font-size: 45px;
+        font-size: 1.5em;
         text-align: center;
         text-align-all: center;
         font-weight: 900;
@@ -80,7 +80,7 @@
         top: 1.2%;
         color: cornflowerblue;
         font-family: 隶书;
-        font-size: 30px;
+        font-size: 1em;
         z-index: 100;
     }
 
@@ -98,7 +98,7 @@
         top: 1.2%;
         color: cornflowerblue;
         font-family: 隶书;
-        font-size: 30px;
+        font-size: 1em;
         z-index: 100;
     }
 
@@ -112,7 +112,7 @@
 
     .user_information {
         position: absolute;
-        top: 9%;
+        top: 17%;
         left: 20%;
         width: 60%;
         height: 10%;
@@ -126,7 +126,7 @@
         position: absolute;
         top: 0%;
         left: 45%;
-        width: 9.5%;
+        width: 15%;
         height: 99%;
         border-right-style: solid;
         border-right-color: gainsboro;
@@ -148,9 +148,9 @@
 
     .github {
         position: absolute;
-        top: 20%;
+        top: 25%;
         left: 100%;
-        width: 5%;
+        width: 50%;
         height: 70%;
         text-decoration: none;
     }
@@ -180,7 +180,7 @@
         animation-duration: 1.5s;
         animation-timing-function: linear;
         font-family: 华文行楷;
-        font-size: x-large;
+        font-size: 1em;
     }
 
     .passage {
@@ -193,7 +193,7 @@
         animation-delay: 0.5s;
         animation-fill-mode: both;
         font-family: 华文行楷;
-        font-size: x-large;
+        font-size: 1em;
     }
 
     .threejs {
@@ -204,7 +204,7 @@
         animation-duration: 1.5s;
         animation-timing-function: linear;
         font-family: 华文行楷;
-        font-size: x-large;
+        font-size: 1em;
     }
 
     .about {
@@ -217,7 +217,7 @@
         animation-delay: 0.5s;
         animation-fill-mode: both;
         font-family: 华文行楷;
-        font-size: x-large;
+        font-size: 1em;
     }
 
     @keyframes move1 {
@@ -328,7 +328,7 @@
         position: absolute;
         width: 90%;
         height: 50%;
-        top: 21%;
+        top:30%;
         left: 5%;
         overflow: hidden;
         border-right-style: solid;
@@ -403,6 +403,6 @@
         bottom: 0%;
         right: 0;
         font-family: 华文行楷;
-        font-size: 1.2em;
+        font-size: 1em;
     }
 }
