@@ -28,6 +28,7 @@
 
     .head_font .h1 {
         font-family: Tahoma;
+        font-size: 0.5em;
         color: deepskyblue;
         z-index: 100;
     }
@@ -46,7 +47,7 @@
     .welcome_font {
         color: darkturquoise;
         font-family: 楷体;
-        font-size: 1.5em;
+        font-size: 0.5em;
         text-align: center;
         text-align-all: center;
         font-weight: 900;
@@ -80,7 +81,7 @@
         top: 1.2%;
         color: cornflowerblue;
         font-family: 隶书;
-        font-size: 1em;
+        font-size: 0.3em;
         z-index: 100;
     }
 
@@ -98,7 +99,7 @@
         top: 1.2%;
         color: cornflowerblue;
         font-family: 隶书;
-        font-size: 1em;
+        font-size: 0.3em;
         z-index: 100;
     }
 
@@ -180,7 +181,7 @@
         animation-duration: 1.5s;
         animation-timing-function: linear;
         font-family: 华文行楷;
-        font-size: 1em;
+        font-size: 0.2em;
     }
 
     .passage {
@@ -193,7 +194,7 @@
         animation-delay: 0.5s;
         animation-fill-mode: both;
         font-family: 华文行楷;
-        font-size: 1em;
+        font-size: 0.2em;
     }
 
     .threejs {
@@ -204,7 +205,7 @@
         animation-duration: 1.5s;
         animation-timing-function: linear;
         font-family: 华文行楷;
-        font-size: 1em;
+        font-size: 0.2em;
     }
 
     .about {
@@ -217,7 +218,7 @@
         animation-delay: 0.5s;
         animation-fill-mode: both;
         font-family: 华文行楷;
-        font-size: 1em;
+        font-size: 0.2em;
     }
 
     @keyframes move1 {
@@ -403,6 +404,6 @@
         bottom: 0%;
         right: 0;
         font-family: 华文行楷;
-        font-size: 1em;
+        font-size: 0.5em;
     }
 }
