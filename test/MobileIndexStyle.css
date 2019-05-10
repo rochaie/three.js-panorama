@@ -57,22 +57,22 @@
 
     @keyframes move {
         0% {
-            left: 22%;
+            left: 20%;
         }
         25% {
-            left: 61%;
+            left: 35%;
             transform: rotate(20deg) scale(0.5);
         }
         50% {
-            left: 90%;
+            left: 70%;
             transform: scale(1);
         }
         75% {
-            left: 61%;
+            left: 35%;
             transform: rotate(-20deg) scale(0.5);
         }
         100% {
-            left: 22%;
+            left: 20%;
         }
     }
     .login {
@@ -187,7 +187,7 @@
     .passage {
         position: absolute;
         top: 50%;
-        left: -10%;
+        left: 0%;
         animation: move2;
         animation-duration: 1.5s;
         animation-timing-function: linear;
@@ -200,7 +200,7 @@
     .threejs {
         position: absolute;
         top: 50%;
-        right: 22%;
+        right: 18%;
         animation: move3;
         animation-duration: 1.5s;
         animation-timing-function: linear;
@@ -211,7 +211,7 @@
     .about {
         position: absolute;
         top: 50%;
-        right: -10%;
+        right: 0%;
         animation: move4;
         animation-duration: 1.5s;
         animation-timing-function: linear;
@@ -249,27 +249,27 @@
     }
     @keyframes move2 {
         0% {
-            left: 0%;
+            left: -10%;
             top: 50%;
         }
         20% {
-            left: -2%;
+            left: -8%;
             top: 30%;
         }
         40% {
-            left: -4%;
+            left: -6%;
             top: 10%;
         }
         60% {
-            left: -6%;
+            left: -4%;
             top: 30%;
         }
         80% {
-            left: -8%;
+            left: -2%;
             top: 50%;
         }
         100% {
-            left: -10%;
+            left: 0%;
             top: 50%;
         }
     }
@@ -279,49 +279,49 @@
             top: 50%;
         }
         20% {
-            right: 4.4%;
+            right: 3.6%;
             top: 30%;
         }
         40% {
-            right: 8.8%;
+            right: 7.2%;
             top: 10%;
         }
         60% {
-            right: 13.2%;
+            right: 10.8%;
             top: 30%;
         }
         80% {
-            right: 17.6%;
+            right: 14.4%;
             top: 50%;
         }
         100% {
-            right: 22%;
+            right: 18%;
             top: 50%;
         }
     }
     @keyframes move4 {
         0% {
-            right: 0%;
+            right: -10%;
             top: 50%;
         }
         20% {
-            right: -2%;
+            right: -8%;
             top: 30%;
         }
         40% {
-            right: -4%;
+            right: -6%;
             top: 10%;
         }
         60% {
-            right: -6%;
+            right: -4%;
             top: 30%;
         }
         80% {
-            right: -8%;
+            right: -2%;
             top: 50%;
         }
         100% {
-            right: -10%;
+            right: 0%;
             top: 50%;
         }
     }
