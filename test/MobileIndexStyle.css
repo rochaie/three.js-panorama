@@ -35,7 +35,7 @@
 
     .welcome {
         position: fixed;
-        top: 3%;
+        top: -2%;
         left: 42%;
         animation: move;
         animation-duration: 3.2s;
@@ -78,7 +78,7 @@
     .login {
         position: fixed;
         right: 20%;
-        top: 1.2%;
+        top: 4%;
         color: cornflowerblue;
         font-family: 隶书;
         font-size: 0.8em;
@@ -96,7 +96,7 @@
     .register {
         position: fixed;
         right: 5%;
-        top: 1.2%;
+        top: 4%;
         color: cornflowerblue;
         font-family: 隶书;
         font-size: 0.8em;
@@ -127,7 +127,7 @@
         position: absolute;
         top: 0%;
         left: 45%;
-        width: 15%;
+        width: 20%;
         height: 99%;
         border-right-style: solid;
         border-right-color: gainsboro;
@@ -149,7 +149,7 @@
 
     .github {
         position: absolute;
-        top: 25%;
+        top: 40%;
         left: 100%;
         width: 15%;
         height: 40%;
@@ -200,7 +200,7 @@
     .threejs {
         position: absolute;
         top: 50%;
-        right: 30%;
+        right: 20%;
         animation: move3;
         animation-duration: 1.5s;
         animation-timing-function: linear;
@@ -211,7 +211,7 @@
     .about {
         position: absolute;
         top: 50%;
-        right: 10%;
+        right: 5%;
         animation: move4;
         animation-duration: 1.5s;
         animation-timing-function: linear;
@@ -369,7 +369,7 @@
         text-indent: 2em;
         font-size: 1em;
         overflow: hidden;
-        max-height: 42%;
+        max-height: 63%;
         height: auto !important;
     }
 
@@ -378,7 +378,7 @@
         width: 4%;
         height: 8%;
         top: 16%;
-        left: 50%;
+        left: 45%;
     }
 
     .eyeIcon {
@@ -403,7 +403,7 @@
         width: 10%;
         height: 10%;
         bottom: 0%;
-        right: 0;
+        right: 10%;
         font-family: 华文行楷;
         font-size: 1em;
     }
