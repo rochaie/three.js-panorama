@@ -60,15 +60,15 @@
             left: 20%;
         }
         25% {
-            left: 35%;
+            left: 40%;
             transform: rotate(20deg) scale(0.5);
         }
         50% {
-            left: 70%;
+            left: 60%;
             transform: scale(1);
         }
         75% {
-            left: 35%;
+            left: 40%;
             transform: rotate(-20deg) scale(0.5);
         }
         100% {
