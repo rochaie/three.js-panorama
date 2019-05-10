@@ -9,7 +9,7 @@
         top: 0px;
         left: 0px;
         width: 100%;
-        height: 12%;
+        height: 10%;
         background-color: aliceblue;
         margin: 0;
         padding: 0;
@@ -22,13 +22,13 @@
 
     .head_font {
         position: fixed;
-        top: 5%;
+        top: 0%;
         z-index: 100;
     }
 
     .head_font .h1 {
         font-family: Tahoma;
-        font-size: 2em;
+        font-size: 1.5em;
         color: deepskyblue;
         z-index: 100;
     }
@@ -47,11 +47,11 @@
     .welcome_font {
         color: darkturquoise;
         font-family: 楷体;
-        font-size: 2em;
+        font-size: 1.2em;
         text-align: center;
         text-align-all: center;
         font-weight: 900;
-        letter-spacing: 10px;
+        letter-spacing: 5px;
         z-index: 100;
     }
 
@@ -77,11 +77,11 @@
     }
     .login {
         position: fixed;
-        left: 83%;
+        right: 20%;
         top: 1.2%;
         color: cornflowerblue;
         font-family: 隶书;
-        font-size: 0.3em;
+        font-size: 1.2em;
         z-index: 100;
     }
 
@@ -95,11 +95,11 @@
 
     .register {
         position: fixed;
-        left: 90%;
+        right: 10%;
         top: 1.2%;
         color: cornflowerblue;
         font-family: 隶书;
-        font-size: 0.3em;
+        font-size: 1.2em;
         z-index: 100;
     }
 
@@ -113,7 +113,7 @@
 
     .user_information {
         position: absolute;
-        top: 17%;
+        top: 15%;
         left: 20%;
         width: 60%;
         height: 10%;
@@ -151,8 +151,8 @@
         position: absolute;
         top: 25%;
         left: 100%;
-        width: 50%;
-        height: 70%;
+        width: 30%;
+        height: 40%;
         text-decoration: none;
     }
 
@@ -162,7 +162,7 @@
         position: absolute;
         top: 100%;
         font-family: Tahoma;
-        width: 15em;
+        width: 2em;
         color: coral;
     }
 
@@ -181,7 +181,7 @@
         animation-duration: 1.5s;
         animation-timing-function: linear;
         font-family: 华文行楷;
-        font-size: 0.2em;
+        font-size: 1.5em;
     }
 
     .passage {
@@ -194,7 +194,7 @@
         animation-delay: 0.5s;
         animation-fill-mode: both;
         font-family: 华文行楷;
-        font-size: 0.2em;
+        font-size: 1.5em;
     }
 
     .threejs {
@@ -205,7 +205,7 @@
         animation-duration: 1.5s;
         animation-timing-function: linear;
         font-family: 华文行楷;
-        font-size: 0.2em;
+        font-size: 1.5em;
     }
 
     .about {
@@ -218,7 +218,7 @@
         animation-delay: 0.5s;
         animation-fill-mode: both;
         font-family: 华文行楷;
-        font-size: 0.2em;
+        font-size: 1.5em;
     }
 
     @keyframes move1 {
@@ -328,7 +328,7 @@
     .Content {
         position: absolute;
         width: 90%;
-        height: 50%;
+        height: 70%;
         top:30%;
         left: 5%;
         overflow: hidden;
@@ -353,6 +353,7 @@
 
     .H1 {
         text-align: center;
+        font-size: 2em;
     }
 
     .star {
