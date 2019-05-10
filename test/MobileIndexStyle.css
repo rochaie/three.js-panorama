@@ -22,7 +22,7 @@
 
     .head_font {
         position: fixed;
-        top: 4%;
+        top: -2%;
         z-index: 100;
     }
 
@@ -35,7 +35,7 @@
 
     .welcome {
         position: fixed;
-        top: -2%;
+        top: 3%;
         left: 42%;
         animation: move;
         animation-duration: 3.2s;
@@ -77,8 +77,8 @@
     }
     .login {
         position: fixed;
-        right: 20%;
-        top: 4%;
+        right: 15%;
+        top: -2%;
         color: cornflowerblue;
         font-family: 隶书;
         font-size: 0.8em;
@@ -95,8 +95,8 @@
 
     .register {
         position: fixed;
-        right: 5%;
-        top: 4%;
+        right: 2%;
+        top: -2%;
         color: cornflowerblue;
         font-family: 隶书;
         font-size: 0.8em;
@@ -126,8 +126,8 @@
     .user_touxiang {
         position: absolute;
         top: 0%;
-        left: 45%;
-        width: 20%;
+        left: 37.5%;
+        width: 25%;
         height: 99%;
         border-right-style: solid;
         border-right-color: gainsboro;
@@ -152,7 +152,7 @@
         top: 40%;
         left: 100%;
         width: 15%;
-        height: 40%;
+        height: 60%;
         text-decoration: none;
     }
 
@@ -176,7 +176,7 @@
     .Index {
         position: absolute;
         top: 50%;
-        left: 30%;
+        left: 22%;
         animation: move1;
         animation-duration: 1.5s;
         animation-timing-function: linear;
@@ -187,7 +187,7 @@
     .passage {
         position: absolute;
         top: 50%;
-        left: 10%;
+        left: 5%;
         animation: move2;
         animation-duration: 1.5s;
         animation-timing-function: linear;
@@ -200,7 +200,7 @@
     .threejs {
         position: absolute;
         top: 50%;
-        right: 20%;
+        right: 30%;
         animation: move3;
         animation-duration: 1.5s;
         animation-timing-function: linear;
@@ -211,7 +211,7 @@
     .about {
         position: absolute;
         top: 50%;
-        right: 5%;
+        right: -10%;
         animation: move4;
         animation-duration: 1.5s;
         animation-timing-function: linear;
@@ -369,7 +369,7 @@
         text-indent: 2em;
         font-size: 1em;
         overflow: hidden;
-        max-height: 63%;
+        max-height: 65%;
         height: auto !important;
     }
 
@@ -377,7 +377,7 @@
         position: absolute;
         width: 4%;
         height: 8%;
-        top: 16%;
+        top: 17%;
         left: 45%;
     }
 
@@ -385,7 +385,7 @@
         position: absolute;
         width: 4%;
         height: 8%;
-        top: 16%;
+        top: 17%;
         left: 70%;
     }
 
@@ -403,8 +403,9 @@
         width: 10%;
         height: 10%;
         bottom: 0%;
-        right: 10%;
+        left: 45%;
         font-family: 华文行楷;
         font-size: 1em;
+        white-space: nowrap;
     }
 }
