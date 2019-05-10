@@ -35,7 +35,7 @@
 
     .welcome {
         position: fixed;
-        top: 3%;
+        top: 2.5%;
         left: 42%;
         animation: move;
         animation-duration: 3.2s;
@@ -78,7 +78,7 @@
     .login {
         position: fixed;
         right: 15%;
-        top: -2%;
+        top: 2%;
         color: cornflowerblue;
         font-family: 隶书;
         font-size: 0.8em;
@@ -96,7 +96,7 @@
     .register {
         position: fixed;
         right: 2%;
-        top: -2%;
+        top: 2%;
         color: cornflowerblue;
         font-family: 隶书;
         font-size: 0.8em;
@@ -187,7 +187,7 @@
     .passage {
         position: absolute;
         top: 50%;
-        left: 5%;
+        left: 0%;
         animation: move2;
         animation-duration: 1.5s;
         animation-timing-function: linear;
@@ -200,7 +200,7 @@
     .threejs {
         position: absolute;
         top: 50%;
-        right: 30%;
+        right: 20%;
         animation: move3;
         animation-duration: 1.5s;
         animation-timing-function: linear;
@@ -211,7 +211,7 @@
     .about {
         position: absolute;
         top: 50%;
-        right: -10%;
+        right: -20%;
         animation: move4;
         animation-duration: 1.5s;
         animation-timing-function: linear;
@@ -369,7 +369,7 @@
         text-indent: 2em;
         font-size: 1em;
         overflow: hidden;
-        max-height: 65%;
+        max-height: 67%;
         height: auto !important;
     }
 
