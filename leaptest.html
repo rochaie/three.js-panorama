@@ -1,0 +1,23 @@
+<html>
+<head>
+    <script src="leapjs/leapjs-0.6.4/leap-0.6.4.js"></script>
+    <script src="leapjs/leapjs-0.6.4/examples/lib/leap-plugins-0.1.6.js"></script>
+    <script>
+        document.addEventListener('mousedown',function (event) {
+            console.log((event.clientY/window.innerHeight)*2-1)
+        },false);
+        Leap.loop({
+            hand:function (hand) {
+                    if (hand.screenPosition()[1]<0){
+                        console.log((hand.screenPosition()[1]/window.innerHeight))
+                    } else {
+                        console.log((hand.screenPosition()[1]/window.innerHeight)+0.5)
+                    }
+            }
+        }).use('screenPosition');
+    </script>
+</head>
+<body>
+
+</body>
+</html>
